@@ -1,0 +1,21 @@
+se changed
+delimiter // 
+create  function calc_count(deptID varchar(5))
+returns int
+begin
+declare emps int;
+  select count(empId) into emps FROM  department right outer join employees on 
+department.deptID=deptID;
+return emps;
+end;
+//
+
+ CREATE PROCEDURE citycount (IN deptID varchar(5), OUT cities INT)
+       BEGIN
+         SELECT COUNT(*) INTO cities FROM world.city
+         WHERE CountryCode = country;
+       END//
+
+CREATE FUNCTION hello (s CHAR(20))
+RETURNS CHAR(50) DETERMINISTIC
+       RETURN CONCAT('Hello, ',s,'!');
